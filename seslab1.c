@@ -14,6 +14,8 @@ void* copyandcopy (void *arg) {
 	FILE *fp,*fp1;
 	int pos;
 	fp = fopen("/home/jwilyandi19/modul3/baca.txt","r");
+	if(fp==NULL) printf("baca.txt not found\n");
+	else {
 	fp1 = fopen("/home/jwilyandi19/modul3/salin1.txt","w+");
 	fseek(fp,0L,SEEK_END);
 	pos = ftell(fp);
@@ -24,11 +26,14 @@ void* copyandcopy (void *arg) {
 	}
 	fclose(fp);
 	fclose(fp1); }
+	}
 	else if (pthread_equal(id,tid[1])) {
 	char ch;
 	FILE *fp,*fp1;
 	int pos;
 	fp = fopen("/home/jwilyandi19/modul3/salin1.txt","r");
+	if(fp==NULL) printf("salin1.txt not found\n");
+	else {
 	fp1 = fopen("/home/jwilyandi19/modul3/salin2.txt","w+");
 	fseek(fp,0L,SEEK_END);
 	pos = ftell(fp);
@@ -39,6 +44,7 @@ void* copyandcopy (void *arg) {
 	}
 	fclose(fp);
 	fclose(fp1); }
+	}
 	return NULL;
 }
 	
@@ -50,6 +56,7 @@ int main () {
 	err = pthread_create(&(tid[i]),NULL,&copyandcopy,NULL);
 	if(err!=0) printf("\ncan't create thread: [%s]",strerror(err));
 	else printf("\nthread made");
+	sleep(1);
 	i++; }
 	pthread_join(tid[0],NULL);
 	pthread_join(tid[1],NULL);
