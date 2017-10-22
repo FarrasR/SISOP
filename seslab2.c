@@ -4,32 +4,44 @@
 #include<stdlib.h>
 #include<unistd.h>
 #include<math.h>
+#include<vector>
 
 
 int status;
-int prima[150];
-int primesize;
+vector <int> prima;
+
+bool is_prime(int i)
+{
+	int u=(int)sqrt(i);
+	for (int j=0;primes[j]<=u&&j<primes.size();++j) {
+		if (i%primes[j]==0)
+		return false;
+	}
+	return true;
+}
+
+
 
 void* searchprime(void *arg, int awal, int akhir){
 
 
     while(status != 1)
-    {
-    }
     status=1;
     for(int i=awal; i<=akhir; i++)
     {
-        if(
+       	if (is_prime(i))
+	{
+	primes.push_back(i);
+	    printf("%d\n",i);	
+	}
     }
     status=0;
-
-        
-
     return NULL
 }
 
 int main()
 {
+    prima.push_back(2);
     int i=0;
     int err;    
     int n, t;
@@ -47,7 +59,7 @@ int main()
 	    i++;
         awal=bagi+1;
         bagi+=bagi;
-        if(i==t-1)bagi=n; 
+        if(awal+bagi-1>n)bagi=n; 
     }     
     for(int j=0; j<t; j++)
     {
