@@ -63,8 +63,7 @@ int main()
     for(int j=0; j<t; j++)
     {
         pthread_join(tid[j],NULL);
-    } 
-        
+    }         
 }
 
 
