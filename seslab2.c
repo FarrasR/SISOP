@@ -6,9 +6,8 @@
 #include<math.h>
 #include<vector>
 
-
 int status;
-vector <int> prima;
+vector <int> primes;
 
 bool is_prime(int i)
 {
@@ -36,7 +35,7 @@ void* searchprime(void *arg, int awal, int akhir){
 	}
     }
     status=0;
-    return NULL
+    return NULL;
 }
 
 int main()
