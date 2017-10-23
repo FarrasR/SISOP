@@ -7,16 +7,13 @@
 int main () {
 	printf("Music Player E11\n");
 	//printf("Please Press '1'");
-	int tep;
+	//int tep;
 	char temp[50];
 	char msc[50];
-	scanf("%d",&tep);
-	
-	while(tep==1) {
+	//scanf("%d",&tep);	
+	while(1) {
 		scanf("%s",temp);
-		
 		if(strcmp(temp,"help")==0) {
-		
 			printf("List of Menu\n");
 			printf("list: Show your song that you have\n");
 			printf("play: Play your song\n");
@@ -25,17 +22,12 @@ int main () {
 			printf("stop: Stop your played song\n");
 		}
 		else if (strcmp(temp,"list")==0) {
-		system("find /home/jwilyandi19/SISOP/playlist -name *.mp3");
-
+		system("find /home/farras/SISOP/playlist -name *.mp3");
 		}
-		else if(str)
+		//else if(str)
 		else if (strcmp(temp,"exit")==0) {
-		tep = 0;
+		break;
 		}
-
-
-			
-	
 	}
 
 
